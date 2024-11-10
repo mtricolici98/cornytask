@@ -1,0 +1,97 @@
+<svg id="SvgjsSvg1001" width="288" height="288" xmlns="http://www.w3.org/2000/svg" version="1.1"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs">
+    <defs id="SvgjsDefs1002"></defs>
+    <g id="SvgjsG1008">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="288" height="288">
+            <symbol id="New_Symbol_14" viewBox="-6.5 -6.5 13 13">
+                <path fill="#ffd4c3" stroke="#504b46" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-miterlimit="10"
+                    d="M0-6c2.2 0 4.1 1.5 4.7 3.5C6.3-2.5 6.4 0 5 0v1c0 2.8-2.2 5-5 5s-5-2.2-5-5V0c-1.4 0-1.3-2.5.2-2.5C-4.1-4.5-2.2-6 0-6z"
+                    class="colorffd4c3 svgShape colorStroke504b46 svgStroke"></path>
+                <circle cx="-1.6" cy="-.1" r=".1" fill="#ffc258"
+                    class="colorffc258 svgShape"></circle>
+                <path fill="#4f4b45"
+                    d="M-1.6.5c-.3 0-.6-.3-.6-.6s.2-.7.6-.7c.3 0 .6.3.6.7s-.3.6-.6.6z"
+                    class="color4f4b45 svgShape"></path>
+                <circle cx="1.6" cy="-.1" r=".1" fill="#ffc258"
+                    class="colorffc258 svgShape"></circle>
+                <path fill="#4f4b45" d="M1.6.5C1.3.5 1 .2 1-.1s.3-.6.6-.6.6.3.6.6-.2.6-.6.6z"
+                    class="color4f4b45 svgShape"></path>
+                <circle cx="-3" cy="-1.5" r=".5" fill="#fabfa5"
+                    class="colorfabfa5 svgShape"></circle>
+                <circle cx="3" cy="-1.5" r=".5" fill="#fabfa5"
+                    class="colorfabfa5 svgShape"></circle>
+                <path fill="none" stroke="#504b46" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-miterlimit="10" d="M-1.2-3c.8-.5 1.7-.5 2.5 0"
+                    class="colorStroke504b46 svgStroke"></path>
+            </symbol>
+            <g id="Icons">
+                <g id="XMLID_1870_">
+                    <path id="XMLID_3014_" fill="#fffacf"
+                        d="M9.7 17.3L4 11.1c-.2-.3-.3-.6-.1-1 .2-.4.6-.6 1.1-.4l8.6 3.1-3.9 4.5z"
+                        class="colorfffacf svgShape"></path>
+                    <path id="XMLID_3013_" fill="#fffce5"
+                        d="M4.3 11.4c.2-.1.4-.1.7-.1l7.6 2.7 1.1-1.2-8.8-3.1c-.4-.1-.9 0-1.1.4-.2.3-.1.7.1 1l.4.3z"
+                        class="colorfffce5 svgShape"></path>
+                    <path id="XMLID_3012_" fill="none" stroke="#45413c" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10"
+                        d="M9.7 17.3L4 11.1c-.2-.3-.3-.6-.1-1 .2-.4.6-.6 1.1-.4l8.6 3.1-3.9 4.5z"
+                        class="colorStroke45413c svgStroke"></path>
+                    <path id="XMLID_3051_" fill="#ffccdd"
+                        d="M18.4 9.2l25.4 15c.2-1.4.3-2.8.3-4.3 0-.8 0-1.5-.1-2.3-.1-1.6-1.3-3-2.9-3.3-.2 0-.4-.1-.5-.1-.2-.4-.4-.8-.6-1.1-1.5-2.3-3.6-3-5.4-3.1-.3-.5-.6-1-1-1.5-1.6-1.9-3.5-2.4-5.3-2.4l-.3-.3c-1.9-1.9-4.1-2.2-5.9-1.9-2.1-1.4-5.2-1.9-8.2-.5-5.8 2.6-4 10.8.9 10.5 2.8-.2 4.9-3.2 3.6-4.7z"
+                        class="colorfcd svgShape"></path>
+                    <path id="XMLID_3064_" fill="#ffe5ee"
+                        d="M22.1 6.8c1.8-.3 4 0 5.9 1.9l.3.3c1.7 0 3.7.5 5.3 2.4.5.5.8 1.1 1 1.5 1.9.1 3.9.8 5.4 3.1.3.4.5.8.6 1.1 1.2.2 2.4.6 3.4 1.5 0-.3 0-.6-.1-.9-.1-1.8-1.4-3.2-3.2-3.5h-.2c-.2-.4-.4-.8-.6-1.1-1.5-2.3-3.6-3-5.4-3.1-.3-.5-.6-1-1-1.5-1.6-1.9-3.5-2.4-5.3-2.4 0-.1-.1-.2-.2-.3-1.9-1.9-4.1-2.2-5.9-1.9-2.1-1.4-5.2-1.9-8.2-.5-3.1 1.4-4 4.5-3.4 6.9.4-1.6 1.5-3.1 3.4-4 3-1.4 6.1-.9 8.2.5z"
+                        class="colorffe5ee svgShape"></path>
+                    <path id="XMLID_3088_" fill="none" stroke="#45413c" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10"
+                        d="M18.4 9.2l25.4 15c.2-1.4.3-2.8.3-4.3 0-.8 0-1.5-.1-2.3-.1-1.6-1.3-3-2.9-3.3-.2 0-.4-.1-.5-.1-.2-.4-.4-.8-.6-1.1-1.5-2.3-3.6-3-5.4-3.1-.3-.5-.6-1-1-1.5-1.6-1.9-3.5-2.4-5.3-2.4l-.3-.3c-1.9-1.9-4.1-2.2-5.9-1.9-2.1-1.4-5.2-1.9-8.2-.5-5.8 2.6-4 10.8.9 10.5 2.8-.2 4.9-3.2 3.6-4.7z"
+                        class="colorStroke45413c svgStroke"></path>
+                    <path id="XMLID_2347_" fill="#e5f5ff"
+                        d="M17.2 31.1l2.7-3 2.4-.3c.8 4.6 2.5 8.9 5 12.7 1.3 2 4.1 2.4 6 1 5.5-4.1 9.5-10.3 10.5-17.5L30.4 13.5c-1.4-1.1-2.9-2.1-4.5-2.9-2.1-1.1-4.4-1.7-6.7-1.5-4.2.4-7.8 3.2-9.3 6.9L5.7 26.3c-.6 1.4-.5 2.9.1 4.3v.1c.9 2 2.9 3.3 5.1 3.3h.1c2.4-.1 4.7-1.1 6.2-2.9z"
+                        class="colore5f8ff svgShape"></path>
+                    <path id="XMLID_2359_" fill="#ffffff"
+                        d="M25.3 14.9c1.8.9 3.5 2 5.1 3.2L43 28c.4-1.3.7-2.6.9-3.9L30.4 13.5c-1.6-1.3-3.3-2.3-5.1-3.2-3.2-1.6-7-1.6-10.2.1-2.4 1.2-4.2 3.3-5.2 5.7L5.7 26.3c-.6 1.4-.5 2.9.1 4.3v.1l4.1-10c1-2.5 2.9-4.5 5.2-5.7 3.2-1.7 7-1.7 10.2-.1z"
+                        class="colorfff svgShape"></path>
+                    <path id="XMLID_3017_" fill="none" stroke="#45413c" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10"
+                        d="M30.8 10.6c-.7-2-1.6-3.5-2.5-4.5"
+                        class="colorStroke45413c svgStroke"></path>
+                    <path id="XMLID_3016_" fill="none" stroke="#45413c" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10"
+                        d="M36 13.4c-.4-1.3-.8-2.4-1.3-3.3"
+                        class="colorStroke45413c svgStroke"></path>
+                    <path id="XMLID_3015_" fill="none" stroke="#45413c" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10"
+                        d="M41.7 17.8c-.2-1.4-.6-2.6-1-3.5"
+                        class="colorStroke45413c svgStroke"></path>
+                    <circle id="XMLID_3008_" cx="17.2" cy="18.2" r=".9" fill="#45413c"
+                        stroke="#45413c" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-miterlimit="10"
+                        class="color45413c svgShape colorStroke45413c svgStroke"></circle>
+                    <ellipse id="XMLID_3007_" cx="22.3" cy="21.8" fill="#ffb0ca" rx="1.5" ry="1"
+                        class="colorffb0ca svgShape"></ellipse>
+                    <path id="XMLID_3006_" fill="none" stroke="#45413c" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10" d="M8.4 30s-.4-1.1.6-1.5"
+                        class="colorStroke45413c svgStroke"></path>
+                    <path id="XMLID_3002_" fill="none" stroke="#45413c" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10"
+                        d="M22.3 27.9c1.5-.2 2.9-.9 3.9-2.1 1-1.2 1.5-2.7 1.4-4.2l-.1-1.8"
+                        class="colorStroke45413c svgStroke"></path>
+                    <path id="XMLID_2358_" fill="none" stroke="#45413c" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10"
+                        d="M17.2 31.1l2.7-3 2.4-.3c.8 4.6 2.5 8.9 5 12.7 1.3 2 4.1 2.4 6 1 5.5-4.1 9.5-10.3 10.5-17.5L30.4 13.5c-1.4-1.1-2.9-2.1-4.5-2.9-2.1-1.1-4.4-1.7-6.7-1.5-4.2.4-7.8 3.2-9.3 6.9L5.7 26.3c-.6 1.4-.5 2.9.1 4.3v.1c.9 2 2.9 3.3 5.1 3.3h.1c2.4-.1 4.7-1.1 6.2-2.9z"
+                        class="colorStroke45413c svgStroke"></path>
+                    <path id="XMLID_3005_" fill="#ffccdd" stroke="#45413c" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10"
+                        d="M10.5 10.4c.5 2 2.1 3.6 4.3 3.5 3.2-.2 4.2-4.3 2.1-5.6-1.9-1.1-3.8.7-2.7 1.5"
+                        class="colorfcd svgShape colorStroke45413c svgStroke"></path>
+                    <path id="XMLID_3004_" fill="#ffffff" stroke="#45413c" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10"
+                        d="M22.3 11.6c1.2-1.4 1.2-3.4-.2-4.7L21 5.8c-.4-.4-1.2-.4-1.6-.1-.2.2-.3.4-.3.7l.6 5.2"
+                        class="colorfff svgShape colorStroke45413c svgStroke"></path>
+                </g>
+            </g>
+        </svg>
+    </g>
+</svg>

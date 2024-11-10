@@ -1,0 +1,23 @@
+environment:
+  sdk: '^3.5.4'
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/unicorn.svg
+    - assets/unicorn_logo.png
+    - assets/unicorn_small.png
+
+
+name: 'cornytask'
+
+dependencies:
+  shared_preferences: ^2.0.15
+  flutter:
+    sdk: flutter
+  firebase_core: 3.7.0
+  flutter_svg: ^2.0.14
+  firebase_auth: 5.3.2
+  cloud_firestore: 5.4.5
+  provider: 6.1.2
+  google_sign_in: 6.2.2
