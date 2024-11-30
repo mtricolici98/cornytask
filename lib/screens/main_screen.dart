@@ -1,3 +1,4 @@
+import 'package:cornytask/screens/history_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -22,7 +23,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 2, vsync: this); // 2 tabs: Todos and Rewards
+    _tabController = TabController(length: 3, vsync: this); // 2 tabs: Todos and Rewards
     _checkFirstLaunch();
   }
 
@@ -93,6 +94,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
           tabs: const [
             Tab(icon: Icon(Icons.list), text: 'Todos'),
             Tab(icon: Icon(Icons.star), text: 'Rewards'),
+            Tab(icon: Icon(Icons.history), text: 'History'),
           ],
         ),
         actions: [
@@ -128,6 +130,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
         children: [
           TodoScreen(),
           RewardsScreen(),
+          HistoryScreen()
         ],
       ),
       floatingActionButton: AnimatedBuilder(

@@ -21,7 +21,7 @@ class _TodoScreenState extends State<TodoScreen> {
   static const successEmojis = ["🎉", "🥂", "🤩"];
   static const sadEmojis = ["😬", "🥲", "🥺"];
 
-  String getRandomEmoji(List<String> from){
+  String getRandomEmoji(List<String> from) {
     var random = Random();
     String randomItem = from[random.nextInt(from.length)];
     return randomItem;
@@ -51,16 +51,10 @@ class _TodoScreenState extends State<TodoScreen> {
     });
   }
 
-  Future<void> _updateTodoStatus(DocumentSnapshot todo, bool? isCompleted) async {
+  Future<void> _updateTodoStatus(
+      DocumentSnapshot todo, bool? isCompleted) async {
     User? user = FirebaseAuth.instance.currentUser;
     if (user == null) return;
-
-    await _firestore
-        .collection('users')
-        .doc(user.uid)
-        .collection('todos')
-        .doc(todo.id)
-        .update({'isCompleted': isCompleted});
 
     int coins = todo['rewardCoins'];
     if (isCompleted == true) {
@@ -68,12 +62,56 @@ class _TodoScreenState extends State<TodoScreen> {
       var emoji = getRandomEmoji(successEmojis);
       ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text("$emoji Task Complete! Rewarded $coins")));
+
+      DocumentReference<Object?> ref = await _create_history(user, todo);
+      await completeTodo(user, todo, isCompleted, ref.id);
     } else {
       Provider.of<UserProvider>(context, listen: false).spendCoins(coins);
       var emoji = getRandomEmoji(sadEmojis);
       ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text("$emoji Task Undone! $coins taken back.")));
+      await completeTodo(user, todo, isCompleted, null);
+      await _remove_history(user, todo); // Access the todos subcollection
     }
+  }
+
+  Future<void> _remove_history(User user, DocumentSnapshot<Object?> todo) async {
+    try{
+      var historyId = todo.get('historyId');
+      await _firestore
+          .collection('users') // Access the users collection
+          .doc(user.uid) // Get the current user's document by their UID
+          .collection('history')
+          .doc(historyId)
+          .delete(); // Access the todos subcollection
+    } catch (error) {
+      // Pass
+    }
+  }
+
+  Future<void> completeTodo(User user, DocumentSnapshot<Object?> todo,
+      bool? isCompleted, historyId) async {
+    await _firestore
+        .collection('users')
+        .doc(user.uid)
+        .collection('todos')
+        .doc(todo.id)
+        .update({'isCompleted': isCompleted, 'historyId': historyId});
+  }
+
+  Future<DocumentReference<Object?>> _create_history(
+      User user, DocumentSnapshot<Object?> todo) async {
+    CollectionReference historyColleciton = _firestore
+        .collection('users') // Access the users collection
+        .doc(user.uid) // Get the current user's document by their UID
+        .collection('history'); // Access the todos subcollection
+
+    DocumentReference ref = await historyColleciton.add({
+      'title': todo['title'],
+      'rewardCoins': todo['rewardCoins'],
+      'createdAt': FieldValue.serverTimestamp(),
+    });
+    return ref;
   }
 
   Future<void> _deleteTodo(DocumentSnapshot todo) async {
@@ -87,8 +125,8 @@ class _TodoScreenState extends State<TodoScreen> {
         .doc(todo.id)
         .delete();
 
-    ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Todo deleted.")));
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text("Todo deleted.")));
   }
 
   Future<void> _resetTodo(DocumentSnapshot todo) async {
@@ -100,10 +138,13 @@ class _TodoScreenState extends State<TodoScreen> {
         .doc(user.uid)
         .collection('todos')
         .doc(todo.id)
-        .update({"isCompleted": false, 'createdAt': FieldValue.serverTimestamp(),});
+        .update({
+      "isCompleted": false,
+      'createdAt': FieldValue.serverTimestamp(),
+    });
 
-    ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Todo reset.")));
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text("Todo reset.")));
   }
 
   void _confirmDelete(DocumentSnapshot todo) {
@@ -112,7 +153,8 @@ class _TodoScreenState extends State<TodoScreen> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text("What do you want to do?"),
-          content: Text("You can choose to reset the TODO, marking it as unfinished but keeping your coins or delete it."),
+          content: Text(
+              "You can choose to reset the TODO, marking it as unfinished but keeping your coins or delete it."),
           actions: [
             TextButton(
               child: Text("Cancel"),
@@ -145,34 +187,35 @@ class _TodoScreenState extends State<TodoScreen> {
     return _todos.isEmpty
         ? Center(child: Text("You have not created any TODOs yet."))
         : ListView.builder(
-      itemCount: _todos.length,
-      itemBuilder: (context, index) {
-        var todo = _todos[index];
-        return GestureDetector(
-          onLongPress: () => _confirmDelete(todo), // Hold to delete
-          child: ListTile(
-            key: ValueKey(todo.id), // Unique key for each item
-            trailing: Wrap(
-              children: [
-                Text(todo['rewardCoins'].toString()),
-                Image.asset(
-                  'assets/unicorn_small.png',
-                  width: 24,
-                  height: 24,
+            itemCount: _todos.length,
+            itemBuilder: (context, index) {
+              var todo = _todos[index];
+              return GestureDetector(
+                onLongPress: () => _confirmDelete(todo), // Hold to delete
+                child: ListTile(
+                  key: ValueKey(todo.id),
+                  // Unique key for each item
+                  trailing: Wrap(
+                    children: [
+                      Text(todo['rewardCoins'].toString()),
+                      Image.asset(
+                        'assets/unicorn_small.png',
+                        width: 24,
+                        height: 24,
+                      ),
+                    ],
+                  ),
+                  title: Text(todo['title']),
+                  subtitle: Text(todo['description']),
+                  leading: Checkbox(
+                    value: todo['isCompleted'],
+                    onChanged: (value) async {
+                      await _updateTodoStatus(todo, value);
+                    },
+                  ),
                 ),
-              ],
-            ),
-            title: Text(todo['title']),
-            subtitle: Text(todo['description']),
-            leading: Checkbox(
-              value: todo['isCompleted'],
-              onChanged: (value) async {
-                await _updateTodoStatus(todo, value);
-              },
-            ),
-          ),
-        );
-      },
-    );
+              );
+            },
+          );
   }
 }
