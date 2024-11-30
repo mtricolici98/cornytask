@@ -75,7 +75,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
     for (var item in history) {
       final createdAt = (item['createdAt'] as Timestamp).toDate();
       final dateKey = DateTime(createdAt.year, createdAt.month, createdAt.day);
-      dailyTotals[dateKey] = (dailyTotals[dateKey] ?? 0) + int.parse(item['rewardCoins'].toString());
+      dailyTotals[dateKey] = (dailyTotals[dateKey] ?? 0) +
+          int.parse(item['rewardCoins'].toString());
     }
 
     return dailyTotals.entries
@@ -109,6 +110,52 @@ class _HistoryScreenState extends State<HistoryScreen> {
     return Scaffold(
       body: Column(
         children: [
+          // Grouped List
+          Expanded(
+            child: ListView(
+              children: groupedHistory.entries.map((entry) {
+                final date = entry.key;
+                final items = entry.value;
+
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        date,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    ...items.map((item) {
+                      return ListTile(
+                        leading: Checkbox(
+                          value: true,
+                          onChanged: (b) => {},
+                        ),
+                        title: Text(item['title']),
+                        trailing: Wrap(
+                          children: [
+                            Text(item['rewardCoins'].toString()),
+                            Image.asset(
+                              'assets/unicorn_small.png',
+                              width: 24,
+                              height: 24,
+                            ),
+                          ],
+                        ),
+                      );
+                    }).toList(),
+                    Divider(),
+                  ],
+                );
+              }).toList(),
+            ),
+          ),
+          Divider(),
           // Month Selector and Graph
           Padding(
             padding: const EdgeInsets.all(16.0),
@@ -148,40 +195,6 @@ class _HistoryScreenState extends State<HistoryScreen> {
                   ),
                 ),
               ),
-            ),
-          ),
-          const SizedBox(height: 16),
-          // Grouped List
-          Expanded(
-            child: ListView(
-              children: groupedHistory.entries.map((entry) {
-                final date = entry.key;
-                final items = entry.value;
-
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        date,
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    ...items.map((item) {
-                      return ListTile(
-                        title: Text(item['title']),
-                        subtitle: Text(
-                          '${item['rewardCoins']} coins',
-                        ),
-                      );
-                    }).toList(),
-                  ],
-                );
-              }).toList(),
             ),
           ),
         ],
